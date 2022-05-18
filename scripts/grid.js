@@ -1,7 +1,7 @@
 import { drawGrid } from "./display.js";
 
 export default function Grid(width, height) {
-    this.grid = [];
+    this.arr = [];
     this.width = width;
     this.height = height;   
     this.create();
@@ -10,8 +10,8 @@ export default function Grid(width, height) {
 Grid.prototype.create = function() {
     for (let i = 0; i < this.height; i++) {
         for (let j = 0; j < this.width; j++) {
-            this.grid.push([j, i]);
+            this.arr.push([j, i]);
         }
     }
-    drawGrid(this.grid);
+    drawGrid(this.arr);
 }

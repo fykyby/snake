@@ -12,7 +12,16 @@ export function drawGrid(grid) {
 
 export function drawSnake(snake) {
     snake.forEach(cell => {
-        const x = document.querySelector(`[data-x="${cell[0]}"][data-y="${cell[1]}"]`);
-        x.classList.add('snake');
+        const element = document.querySelector(`[data-x="${cell[0]}"][data-y="${cell[1]}"]`);
+        element.classList.add('snake');
+    })
+}
+
+export function clearSnake(grid) {
+    grid.forEach(cell => {
+        const element = document.querySelector(`[data-x="${cell[0]}"][data-y="${cell[1]}"]`);
+        if (element.classList.contains('snake')) {
+            element.classList.remove('snake');
+        }
     })
 }
