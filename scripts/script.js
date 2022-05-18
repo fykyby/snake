@@ -10,4 +10,7 @@ import Grid from "./grid.js";
     }
     
     setInterval(tick, 300);
+    // window.addEventListener('click', e => {
+    //     tick();
+    // })
 })();
