@@ -30,7 +30,7 @@ Snake.prototype.create = function() {
 }
 
 Snake.prototype.addLength = function() {
-    this.cells.push([this.cells[0][0], this.cells[0][1]]);
+    this.cells.push([this.cells[this.cells.length - 1][0], this.cells[this.cells.length - 1][1]]);
 }
 
 Snake.prototype.updatePos = function() {
@@ -63,7 +63,7 @@ Snake.prototype.updatePos = function() {
     } else if (this.cells[0][1] > this.grid.height - 1) {
         this.cells[0][1] = 0;
     }
-
+    
     drawSnake(this.cells);
 }
 

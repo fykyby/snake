@@ -3,9 +3,9 @@ import Grid from "./grid.js";
 import Food from "./food.js";
 
 (function game() {
-    const grid = new Grid(40, 30);
-    const food = new Food(grid);
-    const snake = new Snake(grid);
+    let grid = new Grid(40, 30);
+    let food = new Food(grid);
+    let snake = new Snake(grid);
 
     function tick() {
         snake.updatePos();
@@ -13,10 +13,18 @@ import Food from "./food.js";
             food.randomize();
             snake.addLength();
         }
+
+        snake.cells.forEach((cell, index) => {
+            if (index === 0 || snake.cells.length < 3) return;
+            if (snake.cells[index][0] === snake.cells[0][0] && snake.cells[index][1] === snake.cells[0][1]) {
+                restartGame();
+            }
+        });
+    }
+
+    function restartGame() {
+        location.reload();
     }
     
     setInterval(tick, 200);
-    // window.addEventListener('click', e => {
-    //     tick();
-    // })
 })();
