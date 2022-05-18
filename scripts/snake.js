@@ -1,11 +1,10 @@
-import { drawSnake, clearSnake } from "./display.js";
+import { drawSnake, clearSnakeCell } from "./display.js";
 
 export default function Snake(grid) {
     this.grid = grid;
     this.moveDir = 0;
     this.moveDirBuffer = 0;
     this.cells = [];
-    this.length = 0;
     this.create();
 
     window.addEventListener('keydown', e => {
@@ -28,19 +27,15 @@ export default function Snake(grid) {
 
 Snake.prototype.create = function() {
     this.cells.push([this.grid.width / 2, this.grid.height / 2]);
-    this.length += 1;
+}
 
-    this.cells.push([this.grid.width / 2, this.grid.height / 2]);
-    this.length += 1;
-    this.cells.push([this.grid.width / 2, this.grid.height / 2]);
-    this.length += 1;
-    
-    drawSnake(this.cells);
+Snake.prototype.addLength = function() {
+    this.cells.push([this.cells[0][0], this.cells[0][1]]);
 }
 
 Snake.prototype.updatePos = function() {
     this.moveDir = this.moveDirBuffer;
-    clearSnake(this.grid.arr);
+    clearSnakeCell(this.cells[this.cells.length - 1]);
 
     switch (this.moveDir) {
         case 0:

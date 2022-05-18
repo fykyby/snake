@@ -23,5 +23,20 @@ export function clearSnake(grid) {
         if (element.classList.contains('snake')) {
             element.classList.remove('snake');
         }
-    })
+    });
+}
+
+export function clearSnakeCell(cell) {
+    const element = document.querySelector(`[data-x="${cell[0]}"][data-y="${cell[1]}"]`);
+    element.classList.remove('snake');
+}
+
+export function drawFood(x, y) {
+    const element = document.querySelector(`[data-x="${x}"][data-y="${y}"]`);
+    element.classList.add('food');
+}
+
+export function clearFood(x, y) {
+    const element = document.querySelector(`[data-x="${x}"][data-y="${y}"]`);
+    element.classList.remove('food');
 }

@@ -30,3 +30,7 @@ body {
 .snake {
     background-color: green;
 }
+
+.food {
+    background-color: rgb(96, 0, 0);
+}
