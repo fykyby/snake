@@ -26,5 +26,19 @@ import Food from "./food.js";
         location.reload();
     }
     
-    setInterval(tick, 200);
+    window.addEventListener('keyup', e => {
+        if (e.key === 'Shift') {
+            clearInterval(intervalId);
+            intervalId = setInterval(tick, snake.speedNormal);
+        }
+    });
+
+    window.addEventListener('keydown', e => {
+        if (e.key === 'Shift') {
+            clearInterval(intervalId);
+            intervalId = setInterval(tick, snake.speedFast);
+        }
+    });
+
+    let intervalId = setInterval(tick, snake.speedNormal);
 })();

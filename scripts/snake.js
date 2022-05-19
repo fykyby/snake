@@ -5,10 +5,12 @@ export default function Snake(grid) {
     this.moveDir = 0;
     this.moveDirBuffer = 0;
     this.cells = [];
+    this.speedNormal = 200;
+    this.speedFast = 80;
     this.create();
 
     window.addEventListener('keydown', e => {
-        switch (e.key) {
+        switch (e.key.toLocaleLowerCase()) {
             case 'w': 
                 if (this.moveDir !== 2) this.moveDirBuffer = 0;
                 break;
