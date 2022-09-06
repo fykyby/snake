@@ -9,7 +9,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: rgb(13, 13, 13);
 }
 
@@ -23,9 +23,11 @@ body {
   border: 1px solid green;
 }
 
-/* .cell {
-    outline: 1px solid rgb(18, 0, 152);
-} */
+.cell {
+  /* outline: 1px solid rgb(18, 0, 152); */
+  width: 20px;
+  height: 20px;
+}
 
 .snake {
   background-color: green;
