@@ -38,6 +38,7 @@ import Food from "./food.js";
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Shift") {
+      if (e.repeat) return;
       clearInterval(intervalId);
       intervalId = setInterval(tick, snake.speedFast);
     }
